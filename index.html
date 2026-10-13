@@ -1,0 +1,1759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#eef0ec">
+<meta name="description" content="Era makes epoxy resin pieces and 3D-printed objects for the home and desk, in small batches and to order.">
+<meta property="og:title" content="Era — Resin and 3D-printed objects">
+<meta property="og:description" content="Epoxy resin pieces and 3D-printed objects, made in small batches and to order.">
+<meta property="og:type" content="website">
+<title>Era — Resin and 3D-printed objects</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%230e3a3c'/%3E%3Ccircle cx='62' cy='42' r='24' fill='%23d9902f' fill-opacity='.85'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..700&family=Newsreader:ital,opsz,wght@0,6..72,400..600;1,6..72,400&family=Onest:wght@300..600&family=Literata:ital,opsz,wght@0,7..72,400..600;1,7..72,400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --mist: #eef0ec;
+  --paper: #f8f9f6;
+  --deep: #0e3a3c;
+  --deep-2: #0a2c2e;
+  --amber: #d9902f;
+  --amber-ink: #8a5410;
+  --ink: #1b2625;
+  --muted: #566361;
+  --line: #d2d8d1;
+  --gutter: clamp(20px, 5vw, 64px);
+  --space: clamp(56px, 9vw, 112px);
+  --display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --text: "Newsreader", Georgia, "Times New Roman", serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+body {
+  margin: 0;
+  background: var(--mist);
+  color: var(--ink);
+  font: 1.0625rem/1.6 var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+img, svg { display: block; max-width: 100%; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); margin: 0; font-weight: 400; }
+.wrap { max-width: 1280px; margin-inline: auto; padding-inline: var(--gutter); }
+section[id] { scroll-margin-top: 72px; }
+
+/* Buttons and links */
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  border: 1px solid var(--deep);
+  border-radius: 999px;
+  background: var(--deep);
+  color: var(--mist);
+  font: 500 15px/1 var(--display);
+  text-decoration: none;
+  text-align: center;
+  transition: background .2s;
+}
+.btn:hover { background: #17595b; }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn.light { background: var(--mist); color: var(--deep); border-color: var(--mist); }
+.btn.light:hover { background: #fff; }
+.link {
+  font: 500 15px var(--display);
+  text-decoration: underline;
+  text-decoration-color: var(--amber);
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
+}
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 14px var(--gutter);
+  background: color-mix(in srgb, var(--mist) 92%, transparent);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line);
+}
+.logo {
+  font: 500 30px/1 var(--display);
+  letter-spacing: -0.04em;
+  color: var(--deep);
+  text-decoration: none;
+}
+.site-nav { display: flex; gap: 28px; font: 500 15px var(--display); }
+.site-nav a { text-decoration: none; }
+.site-nav a:hover { color: var(--amber-ink); }
+.bag-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border: 1px solid var(--deep);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--deep);
+  font: 500 14px var(--display);
+}
+.bag-btn:hover { background: var(--deep); color: var(--mist); }
+.bag-btn .n {
+  min-width: 22px;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--amber);
+  color: var(--deep-2);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+  padding-block: clamp(40px, 7vw, 88px);
+}
+h1 {
+  font-weight: 300;
+  font-size: clamp(2.7rem, 6.2vw, 5.2rem);
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+  color: var(--deep);
+}
+.lead { max-width: 30em; margin: 26px 0 32px; font-size: 1.2rem; color: var(--muted); }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
+.hero-art {
+  position: relative;
+  aspect-ratio: 1 / 1.05;
+  border-radius: 10px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 28% 22%, #1f6e6b 0, transparent 55%),
+    radial-gradient(circle at 78% 88%, #d9902f40 0, transparent 50%),
+    var(--deep);
+}
+.hero-art .h { position: absolute; }
+.h-1 { width: 70%; left: 5%; top: 12%; }
+.h-2 { width: 46%; right: 6%; bottom: 6%; }
+.h-3 { width: 24%; right: 14%; top: 9%; }
+
+.facts {
+  list-style: none;
+  margin-block: 0;
+  padding-block: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  max-width: none;
+}
+.facts li { padding: 22px 24px 22px 0; }
+.facts li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+.facts strong { display: block; font: 500 16px var(--display); color: var(--deep); }
+.facts span { font-size: .95rem; color: var(--muted); }
+
+/* Shop */
+.shop { padding-block: var(--space); }
+h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); line-height: 1.12; letter-spacing: -0.025em; color: var(--deep); }
+.section-intro { max-width: 34em; color: var(--muted); margin: 14px 0 0; }
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: 18px;
+  margin: 36px 0 14px;
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chip {
+  padding: 10px 18px;
+  border: 1px solid #b9c1b8;
+  border-radius: 999px;
+  background: transparent;
+  font: 500 14px var(--display);
+  color: var(--deep);
+}
+.chip:hover { border-color: var(--deep); }
+.chip[aria-pressed="true"] { background: var(--deep); border-color: var(--deep); color: var(--mist); }
+.chip small { opacity: .7; font-size: 12px; margin-left: 4px; }
+.selects { display: flex; gap: 14px; flex-wrap: wrap; }
+.selects label { display: grid; gap: 4px; font: 500 13px var(--display); color: var(--muted); }
+select {
+  padding: 10px 34px 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--paper);
+  font: 15px var(--text);
+  color: var(--ink);
+}
+.count { margin: 0 0 22px; font-size: .95rem; color: var(--muted); }
+
+.products { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 40px 22px; }
+.item { min-width: 0; }
+.item-art {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  padding: 9%;
+  border: 0;
+  border-radius: 6px;
+  overflow: hidden;
+  background: color-mix(in srgb, var(--tint, #cfd8cf) 30%, #f4f5f1);
+}
+.item-art.has-photo { padding: 0; }
+.item-art img { width: 100%; height: 100%; object-fit: cover; }
+.item-art svg { transition: transform .3s; }
+.item-art:hover svg { transform: translateY(-4px); }
+.item-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-top: 14px; }
+.item h3 { font: 500 16px/1.3 var(--display); }
+.price { font: 500 15px var(--display); white-space: nowrap; }
+.item-meta { margin: 2px 0 12px; font-size: .92rem; font-style: italic; color: var(--muted); }
+.add {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--deep);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--deep);
+  font: 500 14px var(--display);
+}
+.add:hover { background: var(--deep); color: var(--mist); }
+.empty-state { grid-column: 1 / -1; padding: 40px 0; color: var(--muted); }
+.empty-state button { margin-left: 8px; border: 0; background: none; text-decoration: underline; color: var(--deep); }
+
+/* Craft */
+.craft { background: var(--deep); color: #dfe8e3; padding-block: var(--space); }
+.craft h2 { color: var(--mist); max-width: 16em; }
+.craft-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); margin-top: 48px; }
+.craft h3 { font-size: 1.5rem; color: var(--amber); margin-bottom: 10px; }
+.craft p { margin: 0; max-width: 28em; color: #c7d6cf; }
+.craft-grid > div { padding-top: 22px; border-top: 1px solid #ffffff30; }
+
+/* Custom */
+.custom { padding-block: var(--space); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 88px); }
+.custom p { color: var(--muted); max-width: 28em; }
+form { display: grid; gap: 16px; }
+label.field { display: grid; gap: 6px; font: 500 14px var(--display); }
+input, textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #c3cbc2;
+  border-radius: 6px;
+  background: var(--paper);
+  font: 1rem var(--text);
+  color: var(--ink);
+}
+form select { width: 100%; }
+textarea { min-height: 120px; resize: vertical; }
+.status { min-height: 1.5em; margin: 0; font-size: .95rem; color: var(--deep); }
+.status.error { color: #9a3a22; }
+form .btn { justify-self: start; }
+
+/* Footer */
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px 32px;
+  padding: 32px var(--gutter);
+  border-top: 1px solid var(--line);
+  font-size: .92rem;
+  color: var(--muted);
+}
+.site-footer p { margin: 0; max-width: 34em; }
+.foot-links { display: flex; gap: 20px; font: 500 14px var(--display); }
+.foot-links a { text-decoration: none; }
+
+/* Detail dialog */
+dialog {
+  width: min(900px, calc(100% - 24px));
+  max-height: calc(100dvh - 24px);
+  padding: 0;
+  border: 0;
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  overflow: auto;
+}
+dialog::backdrop { background: rgba(10, 44, 46, .55); }
+.d-wrap { display: grid; grid-template-columns: 1fr 1fr; }
+.d-art {
+  padding: 12%;
+  background: color-mix(in srgb, var(--tint, #cfd8cf) 30%, #f4f5f1);
+  display: grid;
+  place-items: center;
+}
+.d-art.has-photo { padding: 0; }
+.d-art img { width: 100%; height: 100%; object-fit: cover; }
+.d-info { position: relative; padding: clamp(24px, 4vw, 44px); }
+.d-close {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+}
+.d-info h2 { font-size: 2rem; padding-right: 36px; }
+.d-price { margin: 8px 0 14px; font: 500 20px var(--display); }
+dl { display: grid; grid-template-columns: auto 1fr; gap: 8px 20px; margin: 22px 0; padding: 18px 0; border-block: 1px solid var(--line); font-size: .95rem; }
+dt { font: 500 14px var(--display); color: var(--muted); }
+dd { margin: 0; }
+.d-buy { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.stepper { display: inline-flex; align-items: center; border: 1px solid #b9c1b8; border-radius: 999px; }
+.stepper button { width: 40px; height: 42px; border: 0; background: transparent; font-size: 20px; }
+.stepper span { min-width: 28px; text-align: center; font: 500 15px var(--display); }
+.fine { margin: 16px 0 0; font-size: .9rem; font-style: italic; color: var(--muted); }
+
+/* Bag drawer */
+.scrim { position: fixed; inset: 0; z-index: 29; background: rgba(10, 44, 46, .5); opacity: 0; pointer-events: none; transition: opacity .25s; }
+.scrim.show { opacity: 1; pointer-events: auto; }
+.bag {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 30;
+  width: min(460px, 100%);
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  transform: translateX(100%);
+  visibility: hidden;
+  transition: transform .28s ease, visibility 0s .28s;
+}
+.bag.open { transform: none; visibility: visible; transition: transform .28s ease, visibility 0s; }
+.bag-top { display: flex; justify-content: space-between; align-items: center; padding: 20px 24px; border-bottom: 1px solid var(--line); }
+.bag-top h2 { font-size: 1.7rem; }
+.bag-top button { width: 40px; height: 40px; border: 0; background: transparent; font-size: 28px; line-height: 1; }
+.bag-body { flex: 1; overflow-y: auto; padding: 8px 24px 28px; }
+.empty { padding: 28px 0; color: var(--muted); }
+.row { display: grid; grid-template-columns: 64px 1fr auto; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+.thumb { width: 64px; height: 64px; padding: 6px; border-radius: 6px; background: color-mix(in srgb, var(--tint, #cfd8cf) 30%, #f4f5f1); overflow: hidden; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.row strong { font: 500 15px/1.3 var(--display); }
+.row small { display: block; color: var(--muted); font-size: .88rem; }
+.row .stepper { margin-top: 8px; }
+.row .stepper button { width: 32px; height: 32px; font-size: 17px; }
+.row .stepper span { font-size: 14px; }
+.rm { display: block; margin-top: 6px; padding: 0; border: 0; background: none; font-size: .88rem; color: var(--muted); text-decoration: underline; }
+.line-total { font: 500 15px var(--display); }
+.subtotal { display: flex; justify-content: space-between; padding: 20px 0 6px; font: 500 18px var(--display); }
+.bag-note { margin: 0 0 20px; font-size: .92rem; color: var(--muted); }
+.bag form .btn { width: 100%; justify-self: stretch; }
+
+
+/* Language switcher and Cyrillic type */
+html[lang="ru"], html[lang="uk"] {
+  --display: "Onest", "Helvetica Neue", Arial, sans-serif;
+  --text: "Literata", Georgia, "Times New Roman", serif;
+}
+h1 { overflow-wrap: break-word; hyphens: auto; }
+.head-right { display: flex; align-items: center; gap: 14px; }
+.lang { display: flex; border: 1px solid #b9c1b8; border-radius: 999px; overflow: hidden; }
+.lang button {
+  padding: 8px 10px;
+  border: 0;
+  background: transparent;
+  font: 500 12px var(--display);
+  color: var(--deep);
+}
+.lang button:hover { background: #dfe5dd; }
+.lang button[aria-pressed="true"] { background: var(--deep); color: var(--mist); }
+.site-nav { flex-wrap: wrap; }
+
+@media (max-width: 1024px) {
+  .products { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 800px) {
+  .hero { grid-template-columns: 1fr; }
+  .hero-art { max-width: 520px; }
+  .custom, .craft-grid { grid-template-columns: 1fr; }
+  .d-wrap { grid-template-columns: 1fr; }
+  .d-art { padding: 16%; }
+  .site-nav { gap: 16px; font-size: 14px; }
+}
+@media (max-width: 680px) {
+  .products { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
+  .facts { grid-template-columns: 1fr; }
+  .facts li, .facts li + li { padding: 16px 0; border-left: 0; }
+  .facts li + li { border-top: 1px solid var(--line); }
+  .site-header { flex-wrap: wrap; row-gap: 8px; }
+  .head-right { gap: 10px; }
+  .site-nav { order: 3; width: 100%; justify-content: space-between; }
+  .item-head { flex-direction: column; gap: 2px; }
+  .selects, .selects label, .selects select { width: 100%; }
+  .selects label { flex: 1 1 140px; }
+  .site-footer { flex-direction: column; align-items: flex-start; }
+}
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+  <a class="logo" href="#top" data-i18n-aria="logo_aria" aria-label="Era, back to top">Era</a>
+  <nav class="site-nav" data-i18n-aria="nav_aria" aria-label="Main">
+    <a href="#shop" data-i18n="nav_shop">Collection</a>
+    <a href="#craft" data-i18n="nav_craft">How it's made</a>
+    <a href="#custom" data-i18n="nav_custom">Custom orders</a>
+  </nav>
+  <div class="head-right">
+    <div class="lang" id="lang" role="group" data-i18n-aria="lang_aria" aria-label="Language">
+      <button type="button" data-lang="en" aria-label="English" aria-pressed="true">EN</button>
+      <button type="button" data-lang="ru" aria-label="Русский" aria-pressed="false">RU</button>
+      <button type="button" data-lang="uk" aria-label="Українська" aria-pressed="false">UA</button>
+      <button type="button" data-lang="pl" aria-label="Polski" aria-pressed="false">PL</button>
+    </div>
+    <button class="bag-btn" id="openBag" type="button"><span data-i18n="bag">Bag</span> <span class="n" id="bagCount">0</span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero wrap">
+    <div>
+      <h1 data-i18n-html="h1">Light set in resin.<br>Form built in layers.</h1>
+      <p class="lead" data-i18n="lead">Era makes epoxy resin pieces and 3D-printed objects for the home and desk, in small batches and to order.</p>
+      <div class="hero-actions">
+        <a class="btn" href="#shop" data-i18n="cta_shop">Shop the collection</a>
+        <a class="link" href="#custom" data-i18n="cta_custom">Order something custom</a>
+      </div>
+    </div>
+    <div class="hero-art" id="heroArt" aria-hidden="true"></div>
+  </section>
+
+  <ul class="facts wrap">
+    <li><strong data-i18n="f1_t">Small batches</strong><span data-i18n="f1_d">Short runs keep every piece special.</span></li>
+    <li><strong data-i18n="f2_t">Custom welcome</strong><span data-i18n="f2_d">Choose colours, names and sizes.</span></li>
+    <li><strong data-i18n="f3_t">Order by email</strong><span data-i18n="f3_d">No payment until we confirm your order.</span></li>
+  </ul>
+
+  <section class="shop wrap" id="shop">
+    <h2 data-i18n="shop_h">The collection</h2>
+    <p class="section-intro" data-i18n="shop_intro">Resin dishes, coasters and wall pieces, and 3D-printed vases, lamps and desk objects. Tap any piece for details.</p>
+
+    <div class="toolbar">
+      <div class="chips" id="chips" role="group" aria-label="Material"></div>
+      <div class="selects">
+        <label><span data-i18n="lbl_cat">Category</span>
+          <select id="catSel">
+            <option value="all" data-i18n="cat_all">All categories</option>
+            <option value="home" data-i18n="cat_home">Home</option>
+            <option value="table" data-i18n="cat_table">Table</option>
+            <option value="desk" data-i18n="cat_desk">Desk</option>
+            <option value="gifts" data-i18n="cat_gifts">Gifts and jewellery</option>
+          </select>
+        </label>
+        <label><span data-i18n="lbl_sort">Sort by</span>
+          <select id="sortSel">
+            <option value="featured" data-i18n="sort_featured">Featured</option>
+            <option value="low" data-i18n="sort_low">Price, low to high</option>
+            <option value="high" data-i18n="sort_high">Price, high to low</option>
+            <option value="name" data-i18n="sort_name">Name</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <div class="products" id="products"></div>
+  </section>
+
+  <section class="craft" id="craft">
+    <div class="wrap">
+      <h2 data-i18n="craft_h">Two materials, both made with patience.</h2>
+      <div class="craft-grid">
+        <div>
+          <h3 data-i18n="craft_resin_h">Epoxy resin</h3>
+          <p data-i18n="craft_resin_p">Each piece is poured by hand, in small batches, and left to cure for days. Pigments are mixed by eye, so no two pieces come out exactly alike.</p>
+        </div>
+        <div>
+          <h3 data-i18n="craft_3d_h">3D printing</h3>
+          <p data-i18n="craft_3d_p">Objects are designed on screen and printed layer by layer, then cleaned and finished by hand. The fine layer lines are part of the look.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="custom wrap" id="custom">
+    <div>
+      <h2 data-i18n="custom_h">Have an idea?</h2>
+      <p data-i18n="custom_p1">Tell us the colour, shape or message you have in mind. A name on a dish, a lamp from your photo, a set in your palette.</p>
+      <p data-i18n="custom_p2">We'll reply by email with ideas and a price.</p>
+    </div>
+    <form id="customForm">
+      <label class="field"><span data-i18n="lbl_name">Name</span><input name="name" autocomplete="name" required></label>
+      <label class="field"><span data-i18n="lbl_email">Email</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="field"><span data-i18n="lbl_type">What are you after?</span>
+        <select name="type">
+          <option value="resin" data-i18n="opt_resin">Epoxy resin piece</option>
+          <option value="3d" data-i18n="opt_3d">3D-printed object</option>
+          <option value="gift" data-i18n="opt_gift">Personalised gift</option>
+          <option value="other" data-i18n="opt_other">Something else</option>
+        </select>
+      </label>
+      <label class="field"><span data-i18n="lbl_details">Details</span><textarea name="details" required data-i18n-ph="ph_details" placeholder="Colours, size, text, occasion, deadline"></textarea></label>
+      <button class="btn" type="submit" data-i18n="send_enquiry">Send enquiry</button>
+      <p class="status" id="customStatus" role="status"></p>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <a class="logo" href="#top" data-i18n-aria="logo_aria" aria-label="Era, back to top">Era</a>
+  <p data-i18n="footer_p">Orders are confirmed by email. We send payment and shipping details once we've checked availability.</p>
+  <nav class="foot-links" data-i18n-aria="foot_aria" aria-label="Footer">
+    <a href="#shop" data-i18n="nav_shop">Collection</a>
+    <a href="#craft" data-i18n="nav_craft">How it's made</a>
+    <a href="#custom" data-i18n="nav_custom">Custom orders</a>
+  </nav>
+  <p>© <span id="year"></span> Era</p>
+</footer>
+
+<dialog id="detail" aria-labelledby="detailTitle"></dialog>
+
+<div class="scrim" id="scrim"></div>
+<aside class="bag" id="bag" aria-label="Shopping bag" aria-hidden="true" inert>
+  <div class="bag-top">
+    <h2 data-i18n="bag_h">Your bag</h2>
+    <button type="button" id="closeBag" data-i18n-aria="close_bag" aria-label="Close bag">×</button>
+  </div>
+  <div class="bag-body">
+    <div id="bagItems"></div>
+    <form id="orderForm" hidden>
+      <div class="subtotal"><span data-i18n="total">Total</span><span id="bagTotal">€0.00</span></div>
+      <p class="bag-note" data-i18n="bag_note">No payment now. We'll reply with shipping cost and payment details.</p>
+      <label class="field"><span data-i18n="lbl_name">Name</span><input name="name" autocomplete="name" required></label>
+      <label class="field"><span data-i18n="lbl_email">Email</span><input name="email" type="email" autocomplete="email" required></label>
+      <label class="field"><span data-i18n="lbl_address">Shipping address</span><textarea name="address" autocomplete="street-address" required style="min-height:90px"></textarea></label>
+      <label class="field"><span data-i18n="lbl_note">Note (optional)</span><input name="note"></label>
+      <button class="btn" type="submit" id="sendOrder" data-i18n="send_order">Send order by email</button>
+    </form>
+    <p class="status" id="orderStatus" role="status"></p>
+  </div>
+</aside>
+
+<div class="status" id="toast" role="status" aria-live="polite"
+     style="position:fixed;left:50%;bottom:20px;transform:translateX(-50%);z-index:40;padding:10px 18px;border-radius:999px;background:var(--deep);color:var(--mist);font:500 14px var(--display);opacity:0;pointer-events:none;transition:opacity .2s;min-height:0"></div>
+
+<script>
+/* ---------- Settings ---------- */
+// Orders and enquiries go to this address (opens the visitor's email app).
+const CONTACT_EMAIL = "Oleynik.nastya96@gmail.com";
+// Optional: paste a form-service URL (for example a Formspree endpoint) so orders are
+// sent straight to your inbox without opening the visitor's email app.
+const ORDER_ENDPOINT = "https://formspree.io/f/mnpjgadl";
+const STORAGE_KEY = "era-bag-v1";
+const LANG_KEY = "era-lang";
+
+/* ---------- Photos ----------
+   Add real photos by product id. Until then, each product shows a drawn placeholder.
+   Example: 1: "images/ocean-pour-tray.jpg" */
+const PHOTOS = {
+  // 1: "images/ocean-pour-tray.jpg",
+};
+
+/* ---------- Colours ---------- */
+const PAL = {
+  ocean:  ["#0f5c63", "#5fb8b0", "#d9f2ec"],
+  forest: ["#1d4a36", "#6fa57f", "#dbe9d2"],
+  amber:  ["#b4631b", "#f0b050", "#fbe8c0"],
+  rose:   ["#a64560", "#e89aa5", "#fbe1e0"],
+  smoke:  ["#3b4546", "#8c9a9a", "#e3e8e6"],
+  lilac:  ["#5b4a8a", "#a999d6", "#ece6f8"],
+  sand:   ["#a8896a", "#dcc7a5", "#f6efe2"],
+  ink:    ["#10223a", "#2f5b8f", "#a9c8e8"],
+  clay:   ["#8a5a44", "#c88f72", "#efd3c0"],
+  sage:   ["#55705c", "#9db8a0", "#e2ebde"],
+  bone:   ["#b2ad9d", "#dcd8ca", "#f5f2e9"],
+  char:   ["#2b2f2e", "#575f5d", "#a3aba8"]
+};
+
+/*DATA-START*/
+/* ---------- Interface texts ---------- */
+const I18N = {
+  en: {
+    title: "Era — Resin and 3D-printed objects",
+    meta_desc: "Era makes epoxy resin pieces and 3D-printed objects for the home and desk, in small batches and to order.",
+    logo_aria: "Era, back to top",
+    nav_aria: "Main",
+    foot_aria: "Footer",
+    lang_aria: "Language",
+    nav_shop: "Collection",
+    nav_craft: "How it's made",
+    nav_custom: "Custom orders",
+    bag: "Bag",
+    h1: "Light set in resin.<br>Form built in layers.",
+    lead: "Era makes epoxy resin pieces and 3D-printed objects for the home and desk, in small batches and to order.",
+    cta_shop: "Shop the collection",
+    cta_custom: "Order something custom",
+    f1_t: "Small batches",
+    f1_d: "Short runs keep every piece special.",
+    f2_t: "Custom welcome",
+    f2_d: "Choose colours, names and sizes.",
+    f3_t: "Order by email",
+    f3_d: "No payment until we confirm your order.",
+    shop_h: "The collection",
+    shop_intro: "Resin dishes, coasters and wall pieces, and 3D-printed vases, lamps and desk objects. Tap any piece for details.",
+    chip_all: "All pieces",
+    mat_resin: "Epoxy resin",
+    mat_3d: "3D printed",
+    lbl_cat: "Category",
+    lbl_sort: "Sort by",
+    cat_all: "All categories",
+    cat_home: "Home",
+    cat_table: "Table",
+    cat_desk: "Desk",
+    cat_gifts: "Gifts and jewellery",
+    sort_featured: "Featured",
+    sort_low: "Price, low to high",
+    sort_high: "Price, high to low",
+    sort_name: "Name",
+    empty_filter: "Nothing matches these filters.",
+    reset: "Show all pieces",
+    view_details: "View details: ",
+    add: "Add to bag",
+    added: "Added",
+    toast_added: "Added to bag",
+    craft_h: "Two materials, both made with patience.",
+    craft_resin_h: "Epoxy resin",
+    craft_resin_p: "Each piece is poured by hand, in small batches, and left to cure for days. Pigments are mixed by eye, so no two pieces come out exactly alike.",
+    craft_3d_h: "3D printing",
+    craft_3d_p: "Objects are designed on screen and printed layer by layer, then cleaned and finished by hand. The fine layer lines are part of the look.",
+    custom_h: "Have an idea?",
+    custom_p1: "Tell us the colour, shape or message you have in mind. A name on a dish, a lamp from your photo, a set in your palette.",
+    custom_p2: "We'll reply by email with ideas and a price.",
+    lbl_name: "Name",
+    lbl_email: "Email",
+    lbl_type: "What are you after?",
+    opt_resin: "Epoxy resin piece",
+    opt_3d: "3D-printed object",
+    opt_gift: "Personalised gift",
+    opt_other: "Something else",
+    lbl_details: "Details",
+    ph_details: "Colours, size, text, occasion, deadline",
+    send_enquiry: "Send enquiry",
+    footer_p: "Orders are confirmed by email. We send payment and shipping details once we've checked availability.",
+    bag_h: "Your bag",
+    close: "Close",
+    close_bag: "Close bag",
+    bag_empty: "Your bag is empty. Pick something from the collection.",
+    total: "Total",
+    bag_note: "No payment now. We'll reply with shipping cost and payment details.",
+    lbl_address: "Shipping address",
+    lbl_note: "Note (optional)",
+    send_order: "Send order by email",
+    each: "each",
+    qty_dec: "Decrease quantity",
+    qty_inc: "Increase quantity",
+    remove: "Remove",
+    d_material: "Material",
+    d_size: "Size",
+    d_ready: "Ready in",
+    mat_detail_resin: "Epoxy resin with mica pigments",
+    mat_detail_3d: "PLA+, matte finish",
+    note_resin: "Each resin piece is poured by hand, so colour and pattern vary slightly.",
+    note_3d: "Printed in layers. The fine layer lines are part of the look.",
+    days_resin: "5–7 days",
+    days_3d: "2–4 days",
+    sending: "Sending…",
+    order_sent: "Order sent. We'll reply by email with shipping and payment details.",
+    order_mailto: "Your email app should open with the order ready to send. If it doesn't, email ",
+    order_fail: "The order couldn't be sent. Please email us at ",
+    enq_sent: "Enquiry sent. We'll reply by email.",
+    enq_mailto: "Your email app should open with the enquiry ready to send. If it doesn't, email ",
+    enq_fail: "The enquiry couldn't be sent. Please email us at ",
+    subject_order: "Era — New order",
+    subject_enq: "Era — Custom enquiry",
+    em_order: "New order enquiry",
+    em_total: "Product total",
+    em_note: "Note",
+    em_type: "Request type"
+  },
+  ru: {
+    title: "Era — Изделия из смолы и 3D-печати",
+    meta_desc: "Era делает изделия из эпоксидной смолы и 3D-печатные предметы для дома и рабочего стола: небольшими партиями и на заказ.",
+    logo_aria: "Era, наверх",
+    nav_aria: "Основная навигация",
+    foot_aria: "Нижняя навигация",
+    lang_aria: "Язык",
+    nav_shop: "Коллекция",
+    nav_craft: "Как это делается",
+    nav_custom: "Индивидуальные заказы",
+    bag: "Корзина",
+    h1: "Свет, застывший в смоле.<br>Форма, собранная слоями.",
+    lead: "Era делает изделия из эпоксидной смолы и 3D-печатные предметы для дома и рабочего стола: небольшими партиями и на заказ.",
+    cta_shop: "Смотреть коллекцию",
+    cta_custom: "Заказать своё",
+    f1_t: "Небольшие партии",
+    f1_d: "Малые тиражи делают каждую вещь особенной.",
+    f2_t: "Учтём ваши пожелания",
+    f2_d: "Выберите цвета, имена и размеры.",
+    f3_t: "Заказ по почте",
+    f3_d: "Оплата только после подтверждения заказа.",
+    shop_h: "Коллекция",
+    shop_intro: "Подставки, мисочки и настенные работы из смолы, а также 3D-печатные вазы, лампы и вещи для стола. Нажмите на изделие, чтобы увидеть подробности.",
+    chip_all: "Все изделия",
+    mat_resin: "Эпоксидная смола",
+    mat_3d: "3D-печать",
+    lbl_cat: "Категория",
+    lbl_sort: "Сортировка",
+    cat_all: "Все категории",
+    cat_home: "Дом",
+    cat_table: "Для стола",
+    cat_desk: "Рабочий стол",
+    cat_gifts: "Подарки и украшения",
+    sort_featured: "Рекомендуем",
+    sort_low: "Цена: по возрастанию",
+    sort_high: "Цена: по убыванию",
+    sort_name: "Название",
+    empty_filter: "По этим фильтрам ничего не найдено.",
+    reset: "Показать все изделия",
+    view_details: "Подробнее: ",
+    add: "В корзину",
+    added: "Добавлено",
+    toast_added: "Добавлено в корзину",
+    craft_h: "Два материала, оба требуют терпения.",
+    craft_resin_h: "Эпоксидная смола",
+    craft_resin_p: "Каждое изделие заливается вручную небольшими партиями и несколько дней застывает. Пигменты смешиваются на глаз, поэтому двух одинаковых вещей не бывает.",
+    craft_3d_h: "3D-печать",
+    craft_3d_p: "Предметы проектируются на компьютере и печатаются слой за слоем, затем зачищаются и дорабатываются вручную. Тонкие линии слоёв — часть образа.",
+    custom_h: "Есть идея?",
+    custom_p1: "Расскажите, какой цвет, форму или надпись вы хотите. Имя на мисочке, лампа по вашему фото, набор в вашей палитре.",
+    custom_p2: "Ответим по почте с идеями и ценой.",
+    lbl_name: "Имя",
+    lbl_email: "Email",
+    lbl_type: "Что вам нужно?",
+    opt_resin: "Изделие из эпоксидной смолы",
+    opt_3d: "3D-печатный предмет",
+    opt_gift: "Персональный подарок",
+    opt_other: "Что-то другое",
+    lbl_details: "Подробности",
+    ph_details: "Цвета, размер, текст, повод, срок",
+    send_enquiry: "Отправить запрос",
+    footer_p: "Заказы подтверждаются по почте. Реквизиты для оплаты и условия доставки отправим после проверки наличия.",
+    bag_h: "Ваша корзина",
+    close: "Закрыть",
+    close_bag: "Закрыть корзину",
+    bag_empty: "Корзина пуста. Выберите что-нибудь из коллекции.",
+    total: "Итого",
+    bag_note: "Оплата сейчас не нужна. Мы ответим со стоимостью доставки и реквизитами для оплаты.",
+    lbl_address: "Адрес доставки",
+    lbl_note: "Комментарий (необязательно)",
+    send_order: "Отправить заказ по почте",
+    each: "за шт.",
+    qty_dec: "Уменьшить количество",
+    qty_inc: "Увеличить количество",
+    remove: "Удалить",
+    d_material: "Материал",
+    d_size: "Размер",
+    d_ready: "Срок изготовления",
+    mat_detail_resin: "Эпоксидная смола со слюдяными пигментами",
+    mat_detail_3d: "PLA+, матовая поверхность",
+    note_resin: "Каждое изделие из смолы заливается вручную, поэтому цвет и рисунок немного отличаются.",
+    note_3d: "Печатается слоями. Тонкие линии слоёв — часть образа.",
+    days_resin: "5–7 дней",
+    days_3d: "2–4 дня",
+    sending: "Отправляем…",
+    order_sent: "Заказ отправлен. Ответим по почте с условиями доставки и оплаты.",
+    order_mailto: "Должно открыться почтовое приложение с готовым заказом. Если этого не произошло, напишите на ",
+    order_fail: "Не удалось отправить заказ. Напишите нам на ",
+    enq_sent: "Запрос отправлен. Ответим по почте.",
+    enq_mailto: "Должно открыться почтовое приложение с готовым запросом. Если этого не произошло, напишите на ",
+    enq_fail: "Не удалось отправить запрос. Напишите нам на ",
+    subject_order: "Era — Новый заказ",
+    subject_enq: "Era — Индивидуальный запрос",
+    em_order: "Новый заказ",
+    em_total: "Сумма товаров",
+    em_note: "Комментарий",
+    em_type: "Тип запроса"
+  },
+  uk: {
+    title: "Era — Вироби зі смоли та 3D-друку",
+    meta_desc: "Era робить вироби з епоксидної смоли та 3D-друковані предмети для дому й робочого столу: невеликими партіями та на замовлення.",
+    logo_aria: "Era, нагору",
+    nav_aria: "Основна навігація",
+    foot_aria: "Нижня навігація",
+    lang_aria: "Мова",
+    nav_shop: "Колекція",
+    nav_craft: "Як це робиться",
+    nav_custom: "Індивідуальні замовлення",
+    bag: "Кошик",
+    h1: "Світло, застигле у смолі.<br>Форма, зібрана шарами.",
+    lead: "Era робить вироби з епоксидної смоли та 3D-друковані предмети для дому й робочого столу: невеликими партіями та на замовлення.",
+    cta_shop: "Дивитися колекцію",
+    cta_custom: "Замовити своє",
+    f1_t: "Невеликі партії",
+    f1_d: "Малі тиражі роблять кожну річ особливою.",
+    f2_t: "Врахуємо ваші побажання",
+    f2_d: "Оберіть кольори, імена та розміри.",
+    f3_t: "Замовлення поштою",
+    f3_d: "Оплата лише після підтвердження замовлення.",
+    shop_h: "Колекція",
+    shop_intro: "Підставки, мисочки та настінні роботи зі смоли, а також 3D-друковані вази, лампи й речі для столу. Натисніть на виріб, щоб побачити деталі.",
+    chip_all: "Усі вироби",
+    mat_resin: "Епоксидна смола",
+    mat_3d: "3D-друк",
+    lbl_cat: "Категорія",
+    lbl_sort: "Сортування",
+    cat_all: "Усі категорії",
+    cat_home: "Дім",
+    cat_table: "Для столу",
+    cat_desk: "Робочий стіл",
+    cat_gifts: "Подарунки та прикраси",
+    sort_featured: "Рекомендуємо",
+    sort_low: "Ціна: за зростанням",
+    sort_high: "Ціна: за спаданням",
+    sort_name: "Назва",
+    empty_filter: "За цими фільтрами нічого не знайдено.",
+    reset: "Показати всі вироби",
+    view_details: "Докладніше: ",
+    add: "До кошика",
+    added: "Додано",
+    toast_added: "Додано до кошика",
+    craft_h: "Два матеріали, обидва вимагають терпіння.",
+    craft_resin_h: "Епоксидна смола",
+    craft_resin_p: "Кожен виріб заливається вручну невеликими партіями й кілька днів застигає. Пігменти змішуються на око, тож двох однакових речей не буває.",
+    craft_3d_h: "3D-друк",
+    craft_3d_p: "Предмети проєктуються на комп'ютері та друкуються шар за шаром, потім зачищаються й доопрацьовуються вручну. Тонкі лінії шарів — частина образу.",
+    custom_h: "Є ідея?",
+    custom_p1: "Розкажіть, який колір, форму чи напис ви хочете. Ім'я на мисочці, лампа за вашим фото, набір у вашій палітрі.",
+    custom_p2: "Відповімо поштою з ідеями та ціною.",
+    lbl_name: "Ім'я",
+    lbl_email: "Email",
+    lbl_type: "Що вам потрібно?",
+    opt_resin: "Виріб з епоксидної смоли",
+    opt_3d: "3D-друкований предмет",
+    opt_gift: "Персональний подарунок",
+    opt_other: "Щось інше",
+    lbl_details: "Подробиці",
+    ph_details: "Кольори, розмір, текст, привід, термін",
+    send_enquiry: "Надіслати запит",
+    footer_p: "Замовлення підтверджуються поштою. Реквізити для оплати й умови доставки надішлемо після перевірки наявності.",
+    bag_h: "Ваш кошик",
+    close: "Закрити",
+    close_bag: "Закрити кошик",
+    bag_empty: "Кошик порожній. Оберіть щось із колекції.",
+    total: "Разом",
+    bag_note: "Оплата зараз не потрібна. Ми відповімо зі вартістю доставки та реквізитами для оплати.",
+    lbl_address: "Адреса доставки",
+    lbl_note: "Коментар (необов'язково)",
+    send_order: "Надіслати замовлення поштою",
+    each: "за шт.",
+    qty_dec: "Зменшити кількість",
+    qty_inc: "Збільшити кількість",
+    remove: "Видалити",
+    d_material: "Матеріал",
+    d_size: "Розмір",
+    d_ready: "Термін виготовлення",
+    mat_detail_resin: "Епоксидна смола зі слюдяними пігментами",
+    mat_detail_3d: "PLA+, матова поверхня",
+    note_resin: "Кожен виріб зі смоли заливається вручну, тому колір і візерунок трохи відрізняються.",
+    note_3d: "Друкується шарами. Тонкі лінії шарів — частина образу.",
+    days_resin: "5–7 днів",
+    days_3d: "2–4 дні",
+    sending: "Надсилаємо…",
+    order_sent: "Замовлення надіслано. Відповімо поштою з умовами доставки й оплати.",
+    order_mailto: "Має відкритися поштовий застосунок із готовим замовленням. Якщо цього не сталося, напишіть на ",
+    order_fail: "Не вдалося надіслати замовлення. Напишіть нам на ",
+    enq_sent: "Запит надіслано. Відповімо поштою.",
+    enq_mailto: "Має відкритися поштовий застосунок із готовим запитом. Якщо цього не сталося, напишіть на ",
+    enq_fail: "Не вдалося надіслати запит. Напишіть нам на ",
+    subject_order: "Era — Нове замовлення",
+    subject_enq: "Era — Індивідуальний запит",
+    em_order: "Нове замовлення",
+    em_total: "Сума товарів",
+    em_note: "Коментар",
+    em_type: "Тип запиту"
+  },
+  pl: {
+    title: "Era — Wyroby z żywicy i druk 3D",
+    meta_desc: "Era tworzy wyroby z żywicy epoksydowej i przedmioty drukowane w 3D do domu i na biurko: w małych seriach i na zamówienie.",
+    logo_aria: "Era, do góry",
+    nav_aria: "Nawigacja główna",
+    foot_aria: "Stopka",
+    lang_aria: "Język",
+    nav_shop: "Kolekcja",
+    nav_craft: "Jak powstaje",
+    nav_custom: "Zamówienia indywidualne",
+    bag: "Koszyk",
+    h1: "Światło zastygłe w żywicy.<br>Forma budowana warstwami.",
+    lead: "Era tworzy wyroby z żywicy epoksydowej i przedmioty drukowane w 3D do domu i na biurko: w małych seriach i na zamówienie.",
+    cta_shop: "Zobacz kolekcję",
+    cta_custom: "Zamów coś własnego",
+    f1_t: "Małe serie",
+    f1_d: "Krótkie serie sprawiają, że każda rzecz jest wyjątkowa.",
+    f2_t: "Uwzględnimy Twoje życzenia",
+    f2_d: "Wybierz kolory, imiona i rozmiary.",
+    f3_t: "Zamówienie e-mailem",
+    f3_d: "Płatność dopiero po potwierdzeniu zamówienia.",
+    shop_h: "Kolekcja",
+    shop_intro: "Miseczki, podkładki i prace ścienne z żywicy oraz wazony, lampy i przedmioty na biurko drukowane w 3D. Dotknij wybranej rzeczy, aby zobaczyć szczegóły.",
+    chip_all: "Wszystkie wyroby",
+    mat_resin: "Żywica epoksydowa",
+    mat_3d: "Druk 3D",
+    lbl_cat: "Kategoria",
+    lbl_sort: "Sortuj według",
+    cat_all: "Wszystkie kategorie",
+    cat_home: "Dom",
+    cat_table: "Na stół",
+    cat_desk: "Biurko",
+    cat_gifts: "Prezenty i biżuteria",
+    sort_featured: "Polecane",
+    sort_low: "Cena: rosnąco",
+    sort_high: "Cena: malejąco",
+    sort_name: "Nazwa",
+    empty_filter: "Brak wyników dla tych filtrów.",
+    reset: "Pokaż wszystkie wyroby",
+    view_details: "Szczegóły: ",
+    add: "Do koszyka",
+    added: "Dodano",
+    toast_added: "Dodano do koszyka",
+    craft_h: "Dwa materiały, oba wymagają cierpliwości.",
+    craft_resin_h: "Żywica epoksydowa",
+    craft_resin_p: "Każdy wyrób jest odlewany ręcznie, w małych seriach, i przez kilka dni twardnieje. Pigmenty miesza się na oko, więc nie ma dwóch identycznych rzeczy.",
+    craft_3d_h: "Druk 3D",
+    craft_3d_p: "Przedmioty są projektowane na komputerze i drukowane warstwa po warstwie, a potem czyszczone i wykańczane ręcznie. Delikatne linie warstw są częścią wyglądu.",
+    custom_h: "Masz pomysł?",
+    custom_p1: "Powiedz, jaki kolor, kształt lub napis masz na myśli. Imię na miseczce, lampa z Twojego zdjęcia, zestaw w Twojej palecie.",
+    custom_p2: "Odpowiemy e-mailem z pomysłami i ceną.",
+    lbl_name: "Imię",
+    lbl_email: "E-mail",
+    lbl_type: "Czego szukasz?",
+    opt_resin: "Wyrób z żywicy epoksydowej",
+    opt_3d: "Przedmiot drukowany w 3D",
+    opt_gift: "Spersonalizowany prezent",
+    opt_other: "Coś innego",
+    lbl_details: "Szczegóły",
+    ph_details: "Kolory, rozmiar, tekst, okazja, termin",
+    send_enquiry: "Wyślij zapytanie",
+    footer_p: "Zamówienia potwierdzamy e-mailem. Dane do płatności i informacje o wysyłce przesyłamy po sprawdzeniu dostępności.",
+    bag_h: "Twój koszyk",
+    close: "Zamknij",
+    close_bag: "Zamknij koszyk",
+    bag_empty: "Koszyk jest pusty. Wybierz coś z kolekcji.",
+    total: "Razem",
+    bag_note: "Płatność teraz nie jest potrzebna. Odpowiemy z kosztem wysyłki i danymi do płatności.",
+    lbl_address: "Adres wysyłki",
+    lbl_note: "Uwagi (opcjonalnie)",
+    send_order: "Wyślij zamówienie e-mailem",
+    each: "za szt.",
+    qty_dec: "Zmniejsz ilość",
+    qty_inc: "Zwiększ ilość",
+    remove: "Usuń",
+    d_material: "Materiał",
+    d_size: "Rozmiar",
+    d_ready: "Czas realizacji",
+    mat_detail_resin: "Żywica epoksydowa z pigmentami mikowymi",
+    mat_detail_3d: "PLA+, matowe wykończenie",
+    note_resin: "Każdy wyrób z żywicy jest odlewany ręcznie, więc kolor i wzór mogą się nieznacznie różnić.",
+    note_3d: "Drukowane warstwowo. Delikatne linie warstw są częścią wyglądu.",
+    days_resin: "5–7 dni",
+    days_3d: "2–4 dni",
+    sending: "Wysyłanie…",
+    order_sent: "Zamówienie wysłane. Odpowiemy e-mailem z informacją o wysyłce i płatności.",
+    order_mailto: "Powinna otworzyć się aplikacja pocztowa z gotowym zamówieniem. Jeśli tak się nie stanie, napisz na adres ",
+    order_fail: "Nie udało się wysłać zamówienia. Napisz do nas na adres ",
+    enq_sent: "Zapytanie wysłane. Odpowiemy e-mailem.",
+    enq_mailto: "Powinna otworzyć się aplikacja pocztowa z gotowym zapytaniem. Jeśli tak się nie stanie, napisz na adres ",
+    enq_fail: "Nie udało się wysłać zapytania. Napisz do nas na adres ",
+    subject_order: "Era — Nowe zamówienie",
+    subject_enq: "Era — Zapytanie indywidualne",
+    em_order: "Nowe zamówienie",
+    em_total: "Suma produktów",
+    em_note: "Uwagi",
+    em_type: "Rodzaj zapytania"
+  }
+};
+
+/* ---------- Product names and descriptions (same order as the product list) ---------- */
+const TR = {
+  ru: {
+    names: [
+      "Поднос «Океан»", "Набор подставок «Прилив»", "Подставка «Волна»", "Мисочка «Лес»", "Янтарная мисочка для мелочей",
+      "Розовый поднос для безделушек", "Подставки «Дымчатый мрамор»", "Подставка «Сиреневая жеода»", "Закладка «Морское стекло»", "Кулон «Янтарная капля»",
+      "Серьги «Капли прилива»", "Брелок «Лес»", "Настенная арка «Океан»", "Настенная арка «Сумерки»", "Настольные часы «Песок»",
+      "Декоративная доска «Лес»", "Настенная панель «Чернила»", "Янтарная чаша для мелочей", "Розовая мисочка для колец", "Мисочка «Ракушка»",
+      "Дымчатый лоток для ручек", "Пресс-папье «Океан»", "Плитка с буквой, сиреневая", "Мисочка «Месяц рождения»", "Скульптурная мини-ваза",
+      "Рифлёная ваза «Бутон»", "Волнистая настольная ваза", "Горшок «Настольный друг»", "Горшок для кактуса, цвет глины", "Подвесное кашпо",
+      "Подсвечник «Спираль»", "Подсвечник-башня для чайной свечи", "Современный подсвечник", "Ночник-литофан", "Настольная лампа с рифлёным абажуром",
+      "Подвесной абажур", "Подставка для телефона", "Набор держателей для кабелей", "Рифлёный стакан для ручек", "Органайзер для стола",
+      "Подставка для наушников", "Пара настенных крючков", "Чаша для ключей в прихожую", "Мыльница с дренажем", "Тройка геометрических кашпо",
+      "Скульптура «Тор»", "Пара держателей для книг", "Именная табличка на заказ", "Подставка для украшений", "Дерево для серёг"
+    ],
+    descs: [
+      "Глубокие морские разводы бирюзового и белого под глянцевым покрытием.",
+      "Четыре подставки с рисунком прилива. Протирать влажной тканью.",
+      "Одна подставка глубокого чернильно-синего цвета с белыми гребнями волн.",
+      "Неглубокая мисочка для колец, ключей и мелких сокровищ.",
+      "Тёплые медовые тона вокруг прозрачного стеклянного центра.",
+      "Мягкий розово-кремовый мрамор с тонкой золотой кромкой.",
+      "Четыре подставки в холодном сером мраморе, каждая неповторима.",
+      "Слои фиолетовых оттенков напоминают срез жеоды.",
+      "Тонкая полупрозрачная закладка с маленькой кисточкой.",
+      "Кулон-капля на цепочке из нержавеющей стали.",
+      "Лёгкие серьги со стальными крючками.",
+      "Маленький подвес из смолы на прочном кольце.",
+      "Настенная работа, которая ловит свет, как мелководье.",
+      "Фиолетовый, переходящий в розовый. Повесьте одну или пару.",
+      "Тихие аналоговые часы с циферблатом из смолы.",
+      "Эффектная доска для фруктов, цветов или стопки книг.",
+      "Высокая и тёмная, с белыми прожилками, как чернила, капнувшие в воду.",
+      "Невысокая чаша для колец, булавок и мелочи.",
+      "Маленькая мисочка для украшений, которые снимаешь на ночь.",
+      "Мягкие нейтральные оттенки с перламутровым блеском.",
+      "Узкий лоток, чтобы ручки и скрепки были в одном месте.",
+      "Тяжёлое, прозрачное, приятно держать в руке.",
+      "Плитка с инициалом на ваш выбор.",
+      "Выберите цвет под месяц или воспоминание.",
+      "Минималистичная ваза для нескольких веточек.",
+      "Тонкие вертикальные рёбра в мягком шалфейном оттенке.",
+      "Волнистый край, который с каждой стороны выглядит по-разному.",
+      "Маленький дом для суккулента. Дренажное отверстие есть.",
+      "Горшок с прямыми стенками для маленьких кактусов.",
+      "Подвесьте у окна. Шнур в комплекте.",
+      "Спираль из слоёв вокруг одной свечи. Для светодиодных свечей.",
+      "Стопка колец для светодиодной чайной свечи. Не для открытого огня.",
+      "Скульптурная основа для светодиодной конусной свечи.",
+      "Рельеф, который светится при включении. Можно заказать по вашему фото.",
+      "Мягкий рассеянный свет сквозь рифлёный абажур. Светодиодная лампа в комплекте.",
+      "Рифлёный абажур для стандартного патрона E27. Только для светодиодных ламп.",
+      "Удерживает телефон или небольшой планшет под удобным углом.",
+      "Три держателя, чтобы зарядные кабели не соскальзывали со стола.",
+      "Аккуратное место для ручек и кистей.",
+      "Три отделения для мелочей.",
+      "Изогнутая подставка, подходит для большинства накладных наушников.",
+      "Два минималистичных крючка. Шурупы в комплекте.",
+      "Широкая чаша для ключей, монет и мелочи.",
+      "Рёбра отводят воду, и мыло остаётся сухим.",
+      "Три размера, которые стоят вместе или по отдельности.",
+      "Небольшая абстрактная вещь для полки.",
+      "Два держателя для книг с широким устойчивым основанием.",
+      "Ваше имя или слово, напечатанное выбранным цветом.",
+      "Тонкая подставка для ожерелий и браслетов.",
+      "Место для множества пар."
+    ]
+  },
+  uk: {
+    names: [
+      "Таця «Океан»", "Набір підставок «Приплив»", "Підставка «Хвиля»", "Мисочка «Ліс»", "Бурштинова мисочка для дрібниць",
+      "Рожева таця для дрібничок", "Підставки «Димчастий мармур»", "Підставка «Бузкова жеода»", "Закладка «Морське скло»", "Кулон «Бурштинова крапля»",
+      "Сережки «Краплі припливу»", "Брелок «Ліс»", "Настінна арка «Океан»", "Настінна арка «Сутінки»", "Настільний годинник «Пісок»",
+      "Декоративна дошка «Ліс»", "Настінна панель «Чорнило»", "Бурштинова чаша для дрібниць", "Рожева мисочка для каблучок", "Мисочка «Мушля»",
+      "Димчастий лоток для ручок", "Прес-пап'є «Океан»", "Плитка з літерою, бузкова", "Мисочка «Місяць народження»", "Скульптурна міні-ваза",
+      "Рифлена ваза «Бутон»", "Хвиляста настільна ваза", "Горщик «Настільний друг»", "Горщик для кактуса, колір глини", "Підвісне кашпо",
+      "Свічник «Спіраль»", "Свічник-вежа для чайної свічки", "Сучасний свічник", "Нічник-літофан", "Настільна лампа з рифленим абажуром",
+      "Підвісний абажур", "Підставка для телефона", "Набір тримачів для кабелів", "Рифлена склянка для ручок", "Органайзер для столу",
+      "Підставка для навушників", "Пара настінних гачків", "Чаша для ключів у передпокій", "Мильниця з дренажем", "Трійка геометричних кашпо",
+      "Скульптура «Тор»", "Пара тримачів для книг", "Іменна табличка на замовлення", "Підставка для прикрас", "Дерево для сережок"
+    ],
+    descs: [
+      "Глибокі морські розводи бірюзового й білого під глянсовим покриттям.",
+      "Чотири підставки з малюнком припливу. Протирати вологою тканиною.",
+      "Одна підставка глибокого чорнильно-синього кольору з білими гребенями хвиль.",
+      "Неглибока мисочка для каблучок, ключів і дрібних скарбів.",
+      "Теплі медові тони навколо прозорого скляного центру.",
+      "М'який рожево-кремовий мармур із тонкою золотою кромкою.",
+      "Чотири підставки в холодному сірому мармурі, кожна неповторна.",
+      "Шари фіолетових відтінків нагадують зріз жеоди.",
+      "Тонка напівпрозора закладка з маленькою китичкою.",
+      "Кулон-крапля на ланцюжку з нержавкої сталі.",
+      "Легкі сережки зі сталевими гачками.",
+      "Маленький підвіс зі смоли на міцному кільці.",
+      "Настінна робота, що ловить світло, як мілководдя.",
+      "Фіолетовий, що переходить у рожевий. Повісьте одну або пару.",
+      "Тихий аналоговий годинник із циферблатом зі смоли.",
+      "Ефектна дошка для фруктів, квітів або стосу книжок.",
+      "Висока й темна, з білими прожилками, як чорнило, що впало у воду.",
+      "Невисока чаша для каблучок, шпильок і дрібниць.",
+      "Маленька мисочка для прикрас, які знімаєш на ніч.",
+      "М'які нейтральні відтінки з перламутровим блиском.",
+      "Вузький лоток, щоб ручки й скріпки були в одному місці.",
+      "Важке, прозоре, приємно тримати в руці.",
+      "Плитка з ініціалом на ваш вибір.",
+      "Оберіть колір під місяць або спогад.",
+      "Мінімалістична ваза для кількох гілочок.",
+      "Тонкі вертикальні ребра в м'якому шавлієвому відтінку.",
+      "Хвилястий край, що з кожного боку виглядає по-різному.",
+      "Маленький дім для сукулента. Дренажний отвір є.",
+      "Горщик із прямими стінками для маленьких кактусів.",
+      "Повісьте біля вікна. Шнур у комплекті.",
+      "Спіраль із шарів навколо однієї свічки. Для світлодіодних свічок.",
+      "Стос кілець для світлодіодної чайної свічки. Не для відкритого вогню.",
+      "Скульптурна основа для світлодіодної конусної свічки.",
+      "Рельєф, що світиться при вмиканні. Можна замовити за вашим фото.",
+      "М'яке розсіяне світло крізь рифлений абажур. Світлодіодна лампа в комплекті.",
+      "Рифлений абажур для стандартного патрона E27. Лише для світлодіодних ламп.",
+      "Тримає телефон або невеликий планшет під зручним кутом.",
+      "Три тримачі, щоб зарядні кабелі не зісковзували зі столу.",
+      "Охайне місце для ручок і пензликів.",
+      "Три відділення для дрібниць.",
+      "Вигнута підставка, підходить для більшості накладних навушників.",
+      "Два мінімалістичні гачки. Шурупи в комплекті.",
+      "Широка чаша для ключів, монет і дрібниць.",
+      "Ребра відводять воду, і мило залишається сухим.",
+      "Три розміри, що стоять разом або окремо.",
+      "Невелика абстрактна річ для полиці.",
+      "Два тримачі для книг із широкою стійкою основою.",
+      "Ваше ім'я або слово, надруковане обраним кольором.",
+      "Тонка підставка для намист і браслетів.",
+      "Місце для багатьох пар."
+    ]
+  },
+  pl: {
+    names: [
+      "Taca „Ocean”", "Zestaw podkładek „Przypływ”", "Podkładka „Fala”", "Miseczka „Las”", "Bursztynowy talerzyk na drobiazgi",
+      "Różowa tacka na drobiazgi", "Podkładki „Dymny marmur”", "Podkładka „Liliowa geoda”", "Zakładka „Szkło morskie”", "Zawieszka „Bursztynowa kropla”",
+      "Kolczyki „Krople przypływu”", "Brelok „Las”", "Ścienny łuk „Ocean”", "Ścienny łuk „Zmierzch”", "Zegar na biurko „Piasek”",
+      "Deska dekoracyjna „Las”", "Panel ścienny „Atrament”", "Bursztynowa miska na drobiazgi", "Różowa miseczka na pierścionki", "Miseczka „Muszla”",
+      "Dymna tacka na długopisy", "Przycisk do papieru „Ocean”", "Płytka z literą, liliowa", "Miseczka „Miesiąc urodzenia”", "Rzeźbiarski mini wazon",
+      "Prążkowany wazon „Pąk”", "Falisty wazon stołowy", "Doniczka „Biurkowy kumpel”", "Doniczka na kaktusa, kolor gliny", "Wisząca doniczka",
+      "Świecznik „Spirala”", "Świecznik-wieża na tealight", "Nowoczesny świecznik", "Lampka nocna litofan", "Lampa stołowa z prążkowanym kloszem",
+      "Wiszący klosz", "Podstawka pod telefon", "Zestaw uchwytów na kable", "Prążkowany kubek na długopisy", "Organizer na biurko",
+      "Stojak na słuchawki", "Para haczyków ściennych", "Miska na klucze do przedpokoju", "Mydelniczka z odpływem", "Trio geometrycznych doniczek",
+      "Rzeźba „Torus”", "Para podpórek do książek", "Tabliczka z imieniem na zamówienie", "Stojak na biżuterię", "Drzewko na kolczyki"
+    ],
+    descs: [
+      "Głębokie morskie wzory w turkusie i bieli pod błyszczącym wykończeniem.",
+      "Cztery podkładki z wzorem linii przypływu. Przecierać wilgotną ściereczką.",
+      "Jedna podkładka w głębokim atramentowym granacie z białymi grzbietami fal.",
+      "Płytka miseczka na pierścionki, klucze i drobne skarby.",
+      "Ciepłe miodowe tony wokół przezroczystego, szklistego środka.",
+      "Miękki różowo-kremowy marmur z cienką złotą krawędzią.",
+      "Cztery podkładki w chłodnym szarym marmurze, każda inna.",
+      "Warstwy fioletów przypominają przekrój geody.",
+      "Smukła, półprzezroczysta zakładka z małym chwostem.",
+      "Zawieszka w kształcie kropli na łańcuszku ze stali nierdzewnej.",
+      "Lekkie kolczyki ze stalowymi hakami.",
+      "Mała zawieszka z żywicy na solidnym kółku.",
+      "Praca na ścianę, która łapie światło jak płytka woda.",
+      "Fiolet przechodzący w róż. Powieś jeden lub dwa.",
+      "Cichy zegar analogowy z tarczą z żywicy.",
+      "Efektowna deska na owoce, kwiaty lub stos książek.",
+      "Wysoki i ciemny, z białymi żyłkami, jak atrament wpuszczony do wody.",
+      "Niska miska na pierścionki, szpilki i drobne monety.",
+      "Mała miseczka na biżuterię, którą zdejmujesz na noc.",
+      "Miękkie neutralne odcienie z perłowym połyskiem.",
+      "Wąska tacka, dzięki której długopisy i spinacze są w jednym miejscu.",
+      "Ciężki, przezroczysty i przyjemny w dłoni.",
+      "Płytka z inicjałem do wyboru.",
+      "Wybierz kolor pasujący do miesiąca lub wspomnienia.",
+      "Minimalistyczny wazon na kilka gałązek.",
+      "Cienkie pionowe prążki w miękkiej szałwiowej barwie.",
+      "Falisty brzeg, który z każdej strony wygląda inaczej.",
+      "Mały domek dla sukulenta. Otwór drenażowy w zestawie.",
+      "Doniczka o prostych ściankach na małe kaktusy.",
+      "Powieś przy oknie. Sznurek w zestawie.",
+      "Skręt warstw wokół jednej świecy. Do świec LED.",
+      "Stos pierścieni na świeczkę tealight LED. Nie do otwartego ognia.",
+      "Rzeźbiarska podstawa pod świecę LED.",
+      "Relief, który świeci po włączeniu. Możemy wykonać wersję z Twojego zdjęcia.",
+      "Miękkie, rozproszone światło przez prążkowany klosz. Żarówka LED w zestawie.",
+      "Prążkowany klosz do standardowej oprawki E27. Tylko do żarówek LED.",
+      "Trzyma telefon lub mały tablet pod wygodnym kątem.",
+      "Trzy klipsy, dzięki którym kable do ładowania nie zsuwają się z biurka.",
+      "Porządne miejsce na długopisy i pędzle.",
+      "Trzy przegródki na drobiazgi.",
+      "Wygięty stojak pasujący do większości słuchawek nausznych.",
+      "Dwa minimalistyczne haczyki. Wkręty w zestawie.",
+      "Szeroka miska na klucze, monety i drobiazgi.",
+      "Żłobienia odprowadzają wodę, więc mydło pozostaje suche.",
+      "Trzy rozmiary, które stoją razem lub osobno.",
+      "Mała abstrakcyjna rzecz na półkę.",
+      "Dwie podpórki do książek z szeroką, stabilną podstawą.",
+      "Twoje imię lub słowo, wydrukowane w wybranym kolorze.",
+      "Smukły stojak na naszyjniki i bransoletki.",
+      "Miejsce na wiele par."
+    ]
+  }
+};
+/*DATA-END*/
+
+const LOCALES = { en: "en-IE", ru: "ru-RU", uk: "uk-UA", pl: "pl-PL" };
+let lang = "en";
+const t = k => (I18N[lang] && I18N[lang][k]) || I18N.en[k] || k;
+
+/* ---------- Products (name, material, category, price, shape, palette, description, size) ---------- */
+const RAW = [
+  // Epoxy resin
+  ["Ocean Pour Tray", "resin", "table", 38, "tray", "ocean", "Deep-sea swirls of teal and white under a glossy finish.", "30 × 20 cm"],
+  ["Tide Coaster Set", "resin", "table", 28, "round", "ocean", "Four coasters with a tidal-line pattern. Wipe clean with a damp cloth.", "4 × Ø 10 cm"],
+  ["Wave Coaster", "resin", "table", 9, "round", "ink", "A single coaster in deep ink blue with white wave crests.", "Ø 10 cm"],
+  ["Forest Dish", "resin", "home", 22, "oval", "forest", "A shallow dish for rings, keys and small treasures.", "12 × 9 cm"],
+  ["Amber Catch-All Dish", "resin", "home", 20, "round", "amber", "Warm honey tones around a clear, glassy centre.", "Ø 11 cm"],
+  ["Rose Trinket Tray", "resin", "home", 26, "tray", "rose", "Soft pink and cream marbling with a thin gold edge.", "16 × 10 cm"],
+  ["Smoke Marble Coasters", "resin", "table", 28, "round", "smoke", "Four coasters in cool grey marble, each one different.", "4 × Ø 10 cm"],
+  ["Lilac Geode Coaster", "resin", "table", 10, "round", "lilac", "Layered purples that read like a sliced geode.", "Ø 10 cm"],
+  ["Sea Glass Bookmark", "resin", "desk", 8, "tall", "ocean", "A slim translucent bookmark with a small tassel.", "3 × 13 cm"],
+  ["Amber Drop Pendant", "resin", "gifts", 24, "drop", "amber", "A teardrop pendant on a stainless steel chain.", "3 cm drop"],
+  ["Tide Drop Earrings", "resin", "gifts", 18, "drop", "ocean", "Lightweight earrings with steel hooks.", "2.5 cm drop"],
+  ["Forest Keyring", "resin", "gifts", 12, "drop", "forest", "A small resin charm on a sturdy ring.", "4 cm"],
+  ["Ocean Wall Arch", "resin", "home", 64, "arch", "ocean", "A wall piece that catches the light like shallow water.", "30 × 40 cm"],
+  ["Dusk Wall Arch", "resin", "home", 64, "arch", "lilac", "Violet fading to pink. Hang one, or a pair.", "30 × 40 cm"],
+  ["Sand Desk Clock", "resin", "desk", 46, "round", "sand", "A quiet analogue clock with a resin face.", "Ø 14 cm"],
+  ["Forest Display Board", "resin", "table", 58, "tray", "forest", "A statement board for fruit, flowers or a stack of books.", "35 × 22 cm"],
+  ["Ink Wall Panel", "resin", "home", 72, "stack", "ink", "Tall and dark with white veins, like ink dropped in water.", "25 × 50 cm"],
+  ["Amber Trinket Bowl", "resin", "home", 24, "bowl", "amber", "A low bowl for rings, pins and loose change.", "Ø 10 cm"],
+  ["Rose Ring Dish", "resin", "gifts", 16, "bowl", "rose", "A small dish for the jewellery you take off at night.", "Ø 8 cm"],
+  ["Sand Shell Dish", "resin", "home", 18, "oval", "sand", "Soft neutrals with a pearly sheen.", "13 × 9 cm"],
+  ["Smoke Pen Tray", "resin", "desk", 26, "tray", "smoke", "A slim tray that keeps pens and clips together.", "20 × 8 cm"],
+  ["Ocean Paperweight", "resin", "desk", 22, "round", "ocean", "Heavy, clear and good to hold.", "Ø 7 cm"],
+  ["Lilac Letter Tile", "resin", "gifts", 34, "stack", "lilac", "A tile with the initial of your choice.", "8 × 8 cm"],
+  ["Birth-Month Dish", "resin", "gifts", 30, "round", "rose", "Pick a colour to match a month, or a memory.", "Ø 10 cm"],
+  // 3D printed
+  ["Sculptural Mini Vase", "3d", "home", 18, "vase", "bone", "A minimal vase for a few stems.", "12 cm tall"],
+  ["Ribbed Bud Vase", "3d", "home", 22, "tall", "sage", "Fine vertical ribs in a soft sage.", "15 cm tall"],
+  ["Wavy Table Vase", "3d", "home", 34, "vase", "clay", "A rolling edge that looks different from every side.", "20 cm tall"],
+  ["Desk Buddy Planter", "3d", "desk", 16, "bowl", "sage", "A small home for a succulent. Drainage hole included.", "Ø 9 cm"],
+  ["Clay Cactus Pot", "3d", "home", 14, "stack", "clay", "A straight-sided pot for small cacti.", "8 cm tall"],
+  ["Hanging Planter", "3d", "home", 20, "bowl", "bone", "Hang it by a window. Cord included.", "Ø 11 cm"],
+  ["Spiral Taper Holder", "3d", "home", 20, "tall", "char", "A twist of layers around one taper. Made for LED candles.", "14 cm tall"],
+  ["Tower Tealight Holder", "3d", "home", 24, "cone", "bone", "Stacked rings for an LED tealight. Not for open flame.", "12 cm tall"],
+  ["Modern Taper Holder", "3d", "home", 18, "tall", "clay", "A sculptural base for an LED taper candle.", "10 cm tall"],
+  ["Lithophane Night Lamp", "3d", "home", 48, "arch", "bone", "A relief that glows when lit. Ask us for a version from your own photo.", "15 × 18 cm"],
+  ["Ribbed Table Lamp", "3d", "home", 62, "cone", "sage", "Soft, diffused light through a ribbed shade. LED bulb included.", "28 cm tall"],
+  ["Pendant Shade", "3d", "home", 54, "cone", "char", "A ribbed shade for a standard E27 fitting. LED bulbs only.", "Ø 24 cm"],
+  ["Phone Stand", "3d", "desk", 14, "stack", "char", "Holds a phone or small tablet at a comfortable angle.", "10 × 8 cm"],
+  ["Cable Catcher Set", "3d", "desk", 10, "round", "bone", "Three clips that stop charging cables sliding off the desk.", "Set of 3"],
+  ["Ribbed Pen Cup", "3d", "desk", 16, "tall", "sage", "A tidy home for pens and brushes.", "10 cm tall"],
+  ["Desk Organiser", "3d", "desk", 28, "tray", "char", "Three compartments for the small things.", "22 × 10 cm"],
+  ["Headphone Stand", "3d", "desk", 36, "arch", "clay", "A curved stand that suits most over-ear headphones.", "24 cm tall"],
+  ["Wall Hook Pair", "3d", "home", 12, "drop", "char", "Two minimal hooks. Screws included.", "2 × 6 cm"],
+  ["Entry Key Bowl", "3d", "home", 22, "bowl", "clay", "A wide bowl for keys, coins and loose change.", "Ø 16 cm"],
+  ["Draining Soap Dish", "3d", "table", 14, "oval", "bone", "Ridges let water drain away so the soap stays dry.", "12 × 8 cm"],
+  ["Geometric Planter Trio", "3d", "home", 36, "stack", "sage", "Three sizes that sit together or apart.", "Set of 3"],
+  ["Torus Sculpture", "3d", "home", 28, "drop", "bone", "A small abstract piece for a shelf.", "12 cm tall"],
+  ["Bookend Pair", "3d", "desk", 38, "stack", "char", "Two bookends with a wide, stable base.", "2 × 15 cm"],
+  ["Custom Name Sign", "3d", "gifts", 30, "tray", "clay", "Your name or word, printed in the colour you choose.", "Up to 25 cm"],
+  ["Jewellery Stand", "3d", "gifts", 26, "tall", "bone", "A slim stand for necklaces and bracelets.", "20 cm tall"],
+  ["Earring Holder Tree", "3d", "gifts", 24, "arch", "sage", "Room for plenty of pairs.", "18 cm tall"]
+];
+
+const products = RAW.map((r, i) => ({
+  id: i + 1,
+  name: r[0], type: r[1], cat: r[2], price: r[3], shape: r[4],
+  colors: PAL[r[5]], desc: r[6], size: r[7],
+  img: PHOTOS[i + 1] || ""
+}));
+const byId = id => products.find(p => p.id === id);
+
+const pName = p => (lang === "en" ? p.name : TR[lang].names[p.id - 1]) || p.name;
+const pDesc = p => (lang === "en" ? p.desc : TR[lang].descs[p.id - 1]) || p.desc;
+
+const UNITS = {
+  ru: { cm: "см", tall: n => `высота ${n} см`, drop: n => `длина ${n} см`, set: n => `Набор из ${n}`, upto: "До" },
+  uk: { cm: "см", tall: n => `висота ${n} см`, drop: n => `довжина ${n} см`, set: n => `Набір із ${n}`, upto: "До" },
+  pl: { cm: "cm", tall: n => `wysokość ${n} cm`, drop: n => `długość ${n} cm`, set: n => `Zestaw ${n} szt.`, upto: "Do" }
+};
+function pSize(p) {
+  const s = p.size;
+  if (lang === "en") return s;
+  const u = UNITS[lang];
+  const dec = x => x.replace(".", ",");
+  let m;
+  if ((m = s.match(/^([\d.]+) cm tall$/))) return u.tall(dec(m[1]));
+  if ((m = s.match(/^([\d.]+) cm drop$/))) return u.drop(dec(m[1]));
+  if ((m = s.match(/^Set of (\d+)$/))) return u.set(m[1]);
+  if ((m = s.match(/^Up to (\d+) cm$/))) return `${u.upto} ${m[1]} ${u.cm}`;
+  return s.replace(/ cm/g, " " + u.cm);
+}
+
+/* ---------- Helpers ---------- */
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+const euro = v => new Intl.NumberFormat(LOCALES[lang], { style: "currency", currency: "EUR" }).format(v);
+
+function pieces(n) {
+  if (lang === "en") return n === 1 ? "1 piece" : `${n} pieces`;
+  const forms = {
+    ru: { one: "изделие", few: "изделия", many: "изделий" },
+    uk: { one: "виріб", few: "вироби", many: "виробів" },
+    pl: { one: "wyrób", few: "wyroby", many: "wyrobów" }
+  }[lang];
+  const cat = new Intl.PluralRules(lang).select(n);
+  return `${n} ${forms[cat] || forms.many}`;
+}
+
+/* ---------- Placeholder artwork (replaced by photos when provided) ---------- */
+const SHAPES = {
+  round: "M30 100a70 70 0 1 0 140 0a70 70 0 1 0 -140 0Z",
+  oval:  "M25 100a75 52 0 1 0 150 0a75 52 0 1 0 -150 0Z",
+  tray:  "M58 58H142A28 28 0 0 1 170 86V114A28 28 0 0 1 142 142H58A28 28 0 0 1 30 114V86A28 28 0 0 1 58 58Z",
+  arch:  "M45 170V95A55 55 0 0 1 155 95V170Z",
+  drop:  "M100 24C132 66 158 98 158 132A58 58 0 0 1 42 132C42 98 68 66 100 24Z",
+  vase:  "M80 24H120C119 52 152 78 152 122C152 156 134 176 126 176H74C66 176 48 156 48 122C48 78 81 52 80 24Z",
+  tall:  "M72 22H128L120 178H80Z",
+  bowl:  "M30 78H170C170 138 138 172 100 172C62 172 30 138 30 78Z",
+  cone:  "M100 22L152 178H48Z",
+  stack: "M62 34H138A6 6 0 0 1 144 40V170A6 6 0 0 1 138 176H62A6 6 0 0 1 56 170V40A6 6 0 0 1 62 34Z"
+};
+
+function rng(seed) {
+  let s = seed * 9301 + 49297;
+  return () => { s = (s * 9301 + 49297) % 233280; return s / 233280; };
+}
+
+function art(p, uid) {
+  const d = SHAPES[p.shape] || SHAPES.round;
+  const [a, b, c] = p.colors;
+  const id = "a" + uid;
+  const label = p.name ? esc(pName(p)) : "";
+  if (p.type === "resin") {
+    const r = rng(p.id * 7 + 3);
+    const cols = [a, c, b, c, a];
+    let blobs = "";
+    for (let i = 0; i < 5; i++) {
+      const cx = 20 + r() * 160, cy = 20 + r() * 160;
+      const rx = 25 + r() * 45, ry = 14 + r() * 28, rot = Math.round(r() * 180);
+      blobs += `<ellipse cx="${cx.toFixed(1)}" cy="${cy.toFixed(1)}" rx="${rx.toFixed(1)}" ry="${ry.toFixed(1)}" fill="${cols[i]}" opacity="${(.45 + r() * .4).toFixed(2)}" transform="rotate(${rot} ${cx.toFixed(1)} ${cy.toFixed(1)})"/>`;
+    }
+    let flecks = "";
+    for (let i = 0; i < 7; i++) {
+      flecks += `<circle cx="${(25 + r() * 150).toFixed(1)}" cy="${(25 + r() * 150).toFixed(1)}" r="${(1 + r() * 1.8).toFixed(1)}" fill="#fff" opacity=".6"/>`;
+    }
+    return `<svg viewBox="0 0 200 200" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clipPath id="${id}c"><path d="${d}"/></clipPath>
+<linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${c}"/><stop offset=".55" stop-color="${b}"/><stop offset="1" stop-color="${a}"/></linearGradient>
+<filter id="${id}b" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<ellipse cx="100" cy="186" rx="62" ry="5" fill="#0a2c2e" opacity=".14"/>
+<path d="${d}" fill="url(#${id}g)"/>
+<g clip-path="url(#${id}c)">
+<g filter="url(#${id}b)">${blobs}</g>
+${flecks}
+<ellipse cx="68" cy="60" rx="30" ry="9" fill="#fff" opacity=".3" transform="rotate(-28 68 60)"/>
+<path d="${d}" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+</g>
+</svg>`;
+  }
+  return `<svg viewBox="0 0 200 200" role="img" aria-label="${label}" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<clipPath id="${id}c"><path d="${d}"/></clipPath>
+<linearGradient id="${id}g" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${b}"/><stop offset=".4" stop-color="${c}"/><stop offset="1" stop-color="${a}"/></linearGradient>
+<linearGradient id="${id}s" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/><stop offset="1" stop-color="#000" stop-opacity=".28"/></linearGradient>
+<pattern id="${id}p" width="200" height="4.5" patternUnits="userSpaceOnUse"><rect width="200" height="1.3" y="3.2" fill="#000" opacity=".16"/></pattern>
+</defs>
+<ellipse cx="100" cy="186" rx="62" ry="5" fill="#0a2c2e" opacity=".14"/>
+<g clip-path="url(#${id}c)">
+<path d="${d}" fill="url(#${id}g)"/>
+<rect width="200" height="200" fill="url(#${id}p)"/>
+<rect width="200" height="200" fill="url(#${id}s)"/>
+</g>
+</svg>`;
+}
+
+function artHTML(p, uid) {
+  return p.img ? `<img src="${esc(p.img)}" alt="${esc(p.name)}" loading="lazy">` : art(p, uid);
+}
+
+
+
+/* ---------- Hero ---------- */
+$("heroArt").innerHTML =
+  `<div class="h h-1">${art({ id: 101, type: "resin", shape: "round", colors: PAL.ocean, name: "" }, "h1")}</div>` +
+  `<div class="h h-2">${art({ id: 102, type: "3d", shape: "vase", colors: PAL.bone, name: "" }, "h2")}</div>` +
+  `<div class="h h-3">${art({ id: 103, type: "resin", shape: "drop", colors: PAL.amber, name: "" }, "h3")}</div>`;
+
+/* ---------- Language ---------- */
+function detectLang() {
+  try {
+    const saved = localStorage.getItem(LANG_KEY);
+    if (saved && I18N[saved]) return saved;
+  } catch (err) { /* storage unavailable */ }
+  const n = (navigator.language || "en").slice(0, 2).toLowerCase();
+  return I18N[n] ? n : "en";
+}
+
+function applyStatic() {
+  document.documentElement.lang = lang;
+  document.title = t("title");
+  const setMeta = (sel, val) => { const m = document.querySelector(sel); if (m) m.content = val; };
+  setMeta('meta[name="description"]', t("meta_desc"));
+  setMeta('meta[property="og:title"]', t("title"));
+  setMeta('meta[property="og:description"]', t("meta_desc"));
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = t(el.dataset.i18n); });
+  document.querySelectorAll("[data-i18n-html]").forEach(el => { el.innerHTML = t(el.dataset.i18nHtml); });
+  document.querySelectorAll("[data-i18n-ph]").forEach(el => { el.placeholder = t(el.dataset.i18nPh); });
+  document.querySelectorAll("[data-i18n-aria]").forEach(el => { el.setAttribute("aria-label", t(el.dataset.i18nAria)); });
+  document.querySelectorAll("[data-lang]").forEach(b => {
+    b.setAttribute("aria-pressed", String(b.dataset.lang === lang));
+  });
+}
+
+function setLang(next) {
+  if (!I18N[next]) return;
+  lang = next;
+  try { localStorage.setItem(LANG_KEY, lang); } catch (err) { /* storage unavailable */ }
+  applyStatic();
+  renderChips();
+  renderProducts();
+  renderBag();
+  if (detail.open) renderDetail();
+}
+
+$("lang").addEventListener("click", e => {
+  const b = e.target.closest("[data-lang]");
+  if (b) setLang(b.dataset.lang);
+});
+
+/* ---------- Shop ---------- */
+const state = { type: "all", cat: "all", sort: "featured" };
+const productsEl = $("products");
+
+function renderChips() {
+  const n = tp => products.filter(p => tp === "all" || p.type === tp).length;
+  const defs = [["all", t("chip_all")], ["resin", t("mat_resin")], ["3d", t("mat_3d")]];
+  $("chips").innerHTML = defs.map(([tp, l]) =>
+    `<button class="chip" type="button" data-type="${tp}" aria-pressed="${state.type === tp}">${l}<small>${n(tp)}</small></button>`
+  ).join("");
+}
+
+function renderProducts() {
+  let list = products.filter(p =>
+    (state.type === "all" || p.type === state.type) &&
+    (state.cat === "all" || p.cat === state.cat)
+  );
+  if (state.sort === "low") list.sort((a, b) => a.price - b.price);
+  if (state.sort === "high") list.sort((a, b) => b.price - a.price);
+  if (state.sort === "name") list.sort((a, b) => pName(a).localeCompare(pName(b), lang));
+
+  $("count").textContent = pieces(list.length);
+
+  if (!list.length) {
+    productsEl.innerHTML = `<p class="empty-state">${t("empty_filter")}<button type="button" data-reset>${t("reset")}</button></p>`;
+    return;
+  }
+
+  productsEl.innerHTML = list.map(p => `
+    <article class="item">
+      <button class="item-art${p.img ? " has-photo" : ""}" type="button" data-open="${p.id}"
+              style="--tint:${p.colors[2]}" aria-label="${esc(t("view_details") + pName(p))}">${artHTML(p, "g" + p.id)}</button>
+      <div class="item-head">
+        <h3>${esc(pName(p))}</h3>
+        <span class="price">${euro(p.price)}</span>
+      </div>
+      <p class="item-meta">${t("mat_" + p.type)}</p>
+      <button class="add" type="button" data-add="${p.id}">${t("add")}</button>
+    </article>`).join("");
+}
+
+$("chips").addEventListener("click", e => {
+  const b = e.target.closest("[data-type]");
+  if (!b) return;
+  state.type = b.dataset.type;
+  renderChips();
+  renderProducts();
+});
+$("catSel").addEventListener("change", e => { state.cat = e.target.value; renderProducts(); });
+$("sortSel").addEventListener("change", e => { state.sort = e.target.value; renderProducts(); });
+
+productsEl.addEventListener("click", e => {
+  if (e.target.closest("[data-reset]")) {
+    state.type = "all"; state.cat = "all"; $("catSel").value = "all";
+    renderChips(); renderProducts();
+    return;
+  }
+  const open = e.target.closest("[data-open]");
+  if (open) { openDetail(Number(open.dataset.open)); return; }
+  const add = e.target.closest("[data-add]");
+  if (add) {
+    addToBag(Number(add.dataset.add), 1);
+    add.textContent = t("added");
+    setTimeout(() => { add.textContent = t("add"); }, 1000);
+  }
+});
+
+/* ---------- Detail dialog ---------- */
+const detail = $("detail");
+let detailQty = 1;
+let detailId = 0;
+
+function renderDetail() {
+  const p = byId(detailId);
+  if (!p) return;
+  detail.innerHTML = `
+    <div class="d-wrap">
+      <div class="d-art${p.img ? " has-photo" : ""}" style="--tint:${p.colors[2]}">${artHTML(p, "m" + p.id)}</div>
+      <div class="d-info">
+        <button class="d-close" type="button" data-close aria-label="${esc(t("close"))}">×</button>
+        <h2 id="detailTitle">${esc(pName(p))}</h2>
+        <p class="d-price">${euro(p.price)}</p>
+        <p>${esc(pDesc(p))}</p>
+        <dl>
+          <dt>${t("d_material")}</dt><dd>${t("mat_detail_" + p.type)}</dd>
+          <dt>${t("d_size")}</dt><dd>${esc(pSize(p))}</dd>
+          <dt>${t("d_ready")}</dt><dd>${t("days_" + p.type)}</dd>
+          <dt>${t("lbl_cat")}</dt><dd>${t("cat_" + p.cat)}</dd>
+        </dl>
+        <div class="d-buy">
+          <div class="stepper">
+            <button type="button" data-dq="-1" aria-label="${esc(t("qty_dec"))}">−</button>
+            <span id="dq" aria-live="polite">${detailQty}</span>
+            <button type="button" data-dq="1" aria-label="${esc(t("qty_inc"))}">+</button>
+          </div>
+          <button class="btn" type="button" data-add-detail>${t("add")}</button>
+        </div>
+        <p class="fine">${t("note_" + p.type)}</p>
+      </div>
+    </div>`;
+}
+
+function openDetail(id) {
+  if (!byId(id)) return;
+  detailId = id;
+  detailQty = 1;
+  renderDetail();
+  detail.showModal();
+}
+
+detail.addEventListener("click", e => {
+  if (e.target === detail || e.target.closest("[data-close]")) { detail.close(); return; }
+  const dq = e.target.closest("[data-dq]");
+  if (dq) {
+    detailQty = Math.min(20, Math.max(1, detailQty + Number(dq.dataset.dq)));
+    $("dq").textContent = detailQty;
+    return;
+  }
+  if (e.target.closest("[data-add-detail]")) {
+    addToBag(detailId, detailQty);
+    detail.close();
+  }
+});
+
+/* ---------- Bag ---------- */
+let cart = [];
+try {
+  const saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]");
+  cart = saved.filter(i => i && byId(i.id) && i.qty > 0).map(i => ({ id: i.id, qty: Math.min(20, i.qty) }));
+} catch (err) { cart = []; }
+
+function saveCart() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(cart)); } catch (err) { /* storage unavailable */ }
+}
+
+const total = () => cart.reduce((s, i) => s + byId(i.id).price * i.qty, 0);
+
+function addToBag(id, qty) {
+  const item = cart.find(i => i.id === id);
+  if (item) item.qty = Math.min(20, item.qty + qty);
+  else cart.push({ id, qty });
+  saveCart();
+  renderBag();
+  toast(t("toast_added"));
+}
+
+function renderBag() {
+  $("bagCount").textContent = cart.reduce((s, i) => s + i.qty, 0);
+  const items = $("bagItems");
+  const form = $("orderForm");
+  if (!cart.length) {
+    items.innerHTML = `<p class="empty">${t("bag_empty")}</p>`;
+    form.hidden = true;
+    return;
+  }
+  form.hidden = false;
+  items.innerHTML = cart.map(i => {
+    const p = byId(i.id);
+    return `
+      <div class="row">
+        <div class="thumb${p.img ? " has-photo" : ""}" style="--tint:${p.colors[2]}">${artHTML(p, "t" + p.id)}</div>
+        <div>
+          <strong>${esc(pName(p))}</strong>
+          <small>${euro(p.price)} ${t("each")}</small>
+          <div class="stepper">
+            <button type="button" data-qty="${p.id}" data-d="-1" aria-label="${esc(t("qty_dec"))}">−</button>
+            <span>${i.qty}</span>
+            <button type="button" data-qty="${p.id}" data-d="1" aria-label="${esc(t("qty_inc"))}">+</button>
+          </div>
+          <button class="rm" type="button" data-rm="${p.id}">${t("remove")}</button>
+        </div>
+        <span class="line-total">${euro(p.price * i.qty)}</span>
+      </div>`;
+  }).join("");
+  $("bagTotal").textContent = euro(total());
+}
+
+$("bagItems").addEventListener("click", e => {
+  const q = e.target.closest("[data-qty]");
+  const r = e.target.closest("[data-rm]");
+  if (q) {
+    const id = Number(q.dataset.qty);
+    const item = cart.find(i => i.id === id);
+    if (item) {
+      item.qty = Math.min(20, item.qty + Number(q.dataset.d));
+      if (item.qty <= 0) cart = cart.filter(i => i.id !== id);
+    }
+  }
+  if (r) cart = cart.filter(i => i.id !== Number(r.dataset.rm));
+  saveCart();
+  renderBag();
+});
+
+const bag = $("bag");
+const scrim = $("scrim");
+let lastFocus = null;
+
+function openBag() {
+  lastFocus = document.activeElement;
+  $("orderStatus").textContent = "";
+  bag.inert = false;
+  bag.classList.add("open");
+  bag.setAttribute("aria-hidden", "false");
+  scrim.classList.add("show");
+  document.body.style.overflow = "hidden";
+  $("closeBag").focus();
+}
+function closeBag() {
+  bag.classList.remove("open");
+  bag.setAttribute("aria-hidden", "true");
+  bag.inert = true;
+  scrim.classList.remove("show");
+  document.body.style.overflow = "";
+  if (lastFocus) lastFocus.focus();
+}
+$("openBag").addEventListener("click", openBag);
+$("closeBag").addEventListener("click", closeBag);
+scrim.addEventListener("click", closeBag);
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape" && bag.classList.contains("open")) closeBag();
+});
+
+/* ---------- Toast ---------- */
+let toastTimer;
+function toast(msg) {
+  const el = $("toast");
+  el.textContent = msg;
+  el.style.opacity = "1";
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { el.style.opacity = "0"; }, 1600);
+}
+
+/* ---------- Sending orders and enquiries ---------- */
+async function deliver({ subject, name, email, lines }) {
+  const body = lines.join("\n");
+  if (ORDER_ENDPOINT) {
+    try {
+      const res = await fetch(ORDER_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify({ _subject: subject, name, email, message: body })
+      });
+      if (res.ok) return "sent";
+    } catch (err) { /* fall back to the email app below */ }
+  }
+  window.location.href = "mailto:" + CONTACT_EMAIL +
+    "?subject=" + encodeURIComponent(subject) +
+    "&body=" + encodeURIComponent(body);
+  return "mailto";
+}
+
+function setStatus(el, text, isError) {
+  el.textContent = text;
+  el.classList.toggle("error", !!isError);
+}
+
+$("orderForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  if (!cart.length) return;
+  const form = e.currentTarget;
+  const f = new FormData(form);
+  const status = $("orderStatus");
+  const lines = [
+    t("em_order"),
+    "",
+    ...cart.map(i => {
+      const p = byId(i.id);
+      return `${pName(p)} × ${i.qty} — ${euro(p.price * i.qty)}`;
+    }),
+    "",
+    `${t("em_total")}: ${euro(total())}`,
+    "",
+    `${t("lbl_name")}: ${f.get("name")}`,
+    `${t("lbl_email")}: ${f.get("email")}`,
+    `${t("lbl_address")}:`,
+    f.get("address"),
+    "",
+    `${t("em_note")}: ${f.get("note") || "-"}`
+  ];
+  $("sendOrder").disabled = true;
+  setStatus(status, t("sending"));
+  try {
+    const mode = await deliver({ subject: t("subject_order"), name: f.get("name"), email: f.get("email"), lines });
+    if (mode === "sent") {
+      cart = [];
+      saveCart();
+      renderBag();
+      form.reset();
+      setStatus(status, t("order_sent"));
+    } else {
+      setStatus(status, t("order_mailto") + CONTACT_EMAIL + ".");
+    }
+  } catch (err) {
+    setStatus(status, t("order_fail") + CONTACT_EMAIL + ".", true);
+  } finally {
+    $("sendOrder").disabled = false;
+  }
+});
+
+$("customForm").addEventListener("submit", async e => {
+  e.preventDefault();
+  const form = e.currentTarget;
+  const f = new FormData(form);
+  const status = $("customStatus");
+  const lines = [
+    `${t("lbl_name")}: ${f.get("name")}`,
+    `${t("lbl_email")}: ${f.get("email")}`,
+    `${t("em_type")}: ${t("opt_" + f.get("type"))}`,
+    "",
+    `${t("lbl_details")}:`,
+    f.get("details")
+  ];
+  setStatus(status, t("sending"));
+  try {
+    const mode = await deliver({ subject: t("subject_enq"), name: f.get("name"), email: f.get("email"), lines });
+    if (mode === "sent") {
+      form.reset();
+      setStatus(status, t("enq_sent"));
+    } else {
+      setStatus(status, t("enq_mailto") + CONTACT_EMAIL + ".");
+    }
+  } catch (err) {
+    setStatus(status, t("enq_fail") + CONTACT_EMAIL + ".", true);
+  }
+});
+
+/* ---------- Start ---------- */
+$("year").textContent = new Date().getFullYear();
+lang = detectLang();
+applyStatic();
+renderChips();
+renderProducts();
+renderBag();
+
+</script>
+</body>
+</html>
